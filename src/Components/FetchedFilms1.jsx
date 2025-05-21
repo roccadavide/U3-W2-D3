@@ -24,8 +24,6 @@ const FetchedFilms1 = props => {
         // this.setState({ films: films.Search }, () => {});
 
         setTheFilms(films.Search);
-
-        console.log(theFilms);
       } else {
         throw new Error("Errore nel reperimento dei film");
       }
@@ -46,20 +44,24 @@ const FetchedFilms1 = props => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  useEffect(() => {
-    if (theFilms.length > 0) {
-      props.pushFilms(theFilms);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [theFilms]);
-
   return (
     <Container className="container-92">
       <h1 className="text-white fs-4 my-3">Trending Now</h1>
       <Row className="g-1">
         {!hasError && theFilms.length > 0 ? (
           theFilms.slice(0, 6).map(film => (
-            <Col onClick={() => navigate(`/film/${film.imdbID}`)} key={film.imdbID} xs={12} sm={6} md={4} xl={2} className="col-12 mb-1 px-half">
+            <Col
+              onClick={() => {
+                navigate(`/film/${film.imdbID}`);
+                props.pushIdFilm(film.imdbID);
+              }}
+              key={film.imdbID}
+              xs={12}
+              sm={6}
+              md={4}
+              xl={2}
+              className="col-12 mb-1 px-half"
+            >
               <img style={{ height: "330px" }} className="img-fluid" src={film.Poster} alt={film.Title} />
             </Col>
           ))

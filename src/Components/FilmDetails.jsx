@@ -2,35 +2,57 @@ import { Image, Alert, Spinner } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
-const FilmDetails = props => {
-  const [film, setFilm] = useState([]);
+const FilmDetails = () => {
+  const [film, setFilm] = useState({});
   const [hasError, setHasError] = useState(false);
-
-  const navigate = useNavigate();
 
   const params = useParams();
   console.log("params", params);
 
-  useEffect(() => {
-    console.log(params.filmId);
+  const fetchIdFilm = async () => {
+    try {
+      const response = await fetch(`http://www.omdbapi.com/?apikey=ce6cbdb9&i=${params.filmId}`);
+      if (response.ok) {
+        const theFilm = await response.json();
 
-    const filmObj = props.films.find(film => film.imdbID === params.filmId);
+        // this.setState({ films: films.Search }, () => {});
 
-    if (filmObj) {
-      setFilm(filmObj);
-    } else {
-      setTimeout(() => {
-        setHasError(true);
-
-        setTimeout(() => {
-          navigate("/");
-        }, 5000);
-      }, 1000);
+        setFilm(theFilm);
+      } else {
+        throw new Error("Errore nel reperimento dei film");
+      }
+    } catch (error) {
+      console.log(error);
+      // this.setState({ hasError: true, errorMessage: error.message });
+      setHasError(true);
     }
+  };
+
+  useEffect(() => {
+    fetchIdFilm();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  // useEffect(() => {
+  //   console.log(params.filmId);
+
+  //   const filmObj = props.films.find(film => film.imdbID === params.filmId);
+
+  //   if (filmObj) {
+  //     setFilm(filmObj);
+  //   } else {
+  //     setTimeout(() => {
+  //       setHasError(true);
+
+  //       setTimeout(() => {
+  //         navigate("/");
+  //       }, 5000);
+  //     }, 1000);
+  //   }
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
 
   return (
     <Container>

@@ -6,18 +6,18 @@ import FilmDetails from "./Components/FilmDetails";
 import { useState } from "react";
 
 function App() {
-  const [films, setFilms] = useState([]);
+  const [idFilm, setIdFilm] = useState("");
 
-  const pushFilms = theFilms => {
-    setFilms(theFilms);
+  const pushIdFilm = Id => {
+    setIdFilm(Id);
   };
 
   return (
     <BrowserRouter>
       <NavBar />
       <Routes>
-        <Route path="/" element={<Main pushFilms={pushFilms} />} />
-        <Route path="/film/:filmId" element={<FilmDetails films={films} />} />
+        <Route path="/" element={<Main pushIdFilm={pushIdFilm} />} />
+        <Route path="/film/:filmId" element={<FilmDetails films={idFilm} />} />
       </Routes>
     </BrowserRouter>
   );

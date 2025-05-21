@@ -8,9 +8,9 @@ const Main = props => {
   return (
     <>
       <UpperMain />
-      <FetchedFilms1 film="the hangover" pushFilms={props.pushFilms} />
-      <FetchedFilms2 film="saw" pushFilms={props.pushFilms} />
-      <FetchedFilms3 film="scary movie" pushFilms={props.pushFilms} />
+      <FetchedFilms1 film="the hangover" pushIdFilm={props.pushIdFilm} />
+      <FetchedFilms2 film="saw" pushIdFilm={props.pushIdFilm} />
+      <FetchedFilms3 film="scary movie" pushIdFilm={props.pushIdFilm} />
       <Footer />
     </>
   );
