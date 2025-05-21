@@ -1,0 +1,157 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+body {
+  background-color: #141414;
+}
+
+nav {
+  width: 95%;
+  margin-inline: auto;
+
+  i {
+    cursor: pointer;
+  }
+}
+
+#navbarScrollingDropdown {
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+.dropdown-menu {
+  background-color: #141414;
+  border: none;
+}
+.dropdown-menu a.dropdown-item {
+  color: white;
+}
+
+.dropdown-menu a.dropdown-item:hover {
+  background-color: #333;
+}
+
+.navbar .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 9999;
+}
+
+.dropdown-menu {
+  background-color: #141414;
+  border: none;
+  left: 10% !important;
+  transform: translateX(-50%);
+  min-width: 10rem;
+  z-index: 9999;
+}
+
+@media (max-width: 500px) {
+  .dropdown-menu {
+    transform: translateX(-50%);
+    left: 1% !important;
+    right: auto !important;
+  }
+}
+
+.container-92 {
+  width: 92.5%;
+  margin-inline: auto;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
+.px-half {
+  padding-left: 0.15rem;
+  padding-right: 0.15rem;
+}
+
+.img-fluid {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.fs-custom {
+  font-size: 0.75rem;
+}
+
+.main {
+  .genresBtn {
+    background-color: transparent;
+    border-radius: 0;
+    width: 7rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .toggle {
+    border: none;
+  }
+
+  i {
+    font-size: 0.9rem;
+    width: 40px;
+    height: 30px;
+    cursor: pointer;
+  }
+}
+
+.footer {
+  width: 50%;
+  margin-inline: auto;
+  padding-top: 4rem;
+  i {
+    width: 0.1rem;
+    cursor: pointer;
+  }
+
+  .button {
+    background-color: transparent;
+    border-radius: 0;
+    width: 5rem;
+    height: 1.6rem;
+    border: 0.5px solid #6c6c6c;
+    display: flex;
+    align-items: center;
+    color: #828282;
+    font-size: 0.5rem;
+  }
+
+  p {
+    cursor: pointer;
+  }
+
+  p:hover {
+    text-decoration: underline;
+  }
+}
+
+.img-fluid {
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.img-fluid:hover {
+  transform: scale(1.05);
+}
+
+.text-custom {
+  color: #828282;
+}
+
+.fs-footer {
+  font-size: 0.6rem;
+}
+
+@media screen and (max-width: 414px) {
+  .d-none-custom {
+    display: none !important;
+  }
+}
+
+.imgDetails {
+  width: 250px;
+}
